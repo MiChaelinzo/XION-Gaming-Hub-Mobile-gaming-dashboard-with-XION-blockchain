@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XION Gaming Hub - UI Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .phone-mockup {
+            background: #1f2937;
+            border-radius: 25px;
+            padding: 20px;
+            border: 3px solid #374151;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #6b7280;
+            border-radius: 2px;
+        }
+        
+        .screen {
+            background: #111827;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 500px;
+        }
+        
+        .screen-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .menu-btn {
+            width: 30px;
+            height: 30px;
+            background: #374151;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .avatar {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: #1f2937;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #374151;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-top: 5px;
+        }
+        
+        .game-card {
+            background: #1f2937;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #374151;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .game-cover {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            border-radius: 8px;
+        }
+        
+        .game-info h4 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .game-info p {
+            color: #9ca3af;
+            font-size: 0.8rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #374151;
+            border-radius: 2px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .blockchain-section {
+            background: linear-gradient(135deg, #1e40af, #7c3aed);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .blockchain-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .blockchain-icon {
+            width: 25px;
+            height: 25px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .wallet-address {
+            font-family: monospace;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #374151;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .architecture-section {
+            background: #1f2937;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .arch-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #3b82f6;
+        }
+        
+        .arch-layers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .arch-layer {
+            background: #111827;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #374151;
+            text-align: center;
+        }
+        
+        .layer-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #f59e0b;
+        }
+        
+        .layer-items {
+            list-style: none;
+        }
+        
+        .layer-items li {
+            padding: 5px 0;
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 XION Gaming Hub</h1>
+            <p>Mobile Gaming Dashboard with Blockchain Integration</p>
+        </div>
+        
+        <div class="mockup-grid">
+            <!-- Dashboard Screen -->
+            <div class="phone-mockup">
+                <div class="screen">
+                    <div class="screen-header">
+                        <div class="menu-btn">☰</div>
+                        <h3>Gaming Dashboard</h3>
+                        <div class="user-info">
+                            <div class="avatar"></div>
+                            <span>Lv.47</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">146h</div>
+                            <div class="stat-label">Total Playtime</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">23</div>
+                            <div class="stat-label">Games Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">342</div>
+                            <div class="stat-label">Total Trophies</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Platinum</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-cover"></div>
+                        <div class="game-info">
+                            <h4>Spider-Man 2</h4>
+                            <p>PS5 • Action • 39h played</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-cover" style="background: linear-gradient(45deg, #8b5cf6, #3b82f6)"></div>
+                        <div class="game-info">
+                            <h4>Call of Duty: MW3</h4>
+                            <p>PS5 • FPS • 76h played</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blockchain Screen -->
+            <div class="phone-mockup">
+                <div class="screen">
+                    <div class="screen-header">
+                        <div class="menu-btn">☰</div>
+                        <h3>Blockchain Stats</h3>
+                        <div class="user-info">
+                            <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+                            <span>Connected</span>
+                        </div>
+                    </div>
+                    
+                    <div class="blockchain-section">
+                        <div class="blockchain-header">
+                            <div class="blockchain-icon">🔗</div>
+                            <h4>XION Wallet</h4>
+                        </div>
+                        <p>Connected via Dave Mobile Toolkit</p>
+                        <div class="wallet-address">xion1abc...def123</div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">47</div>
+                            <div class="stat-label">Verified Achievements</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">23</div>
+                            <div class="stat-label">zkTLS Proofs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">156</div>
+                            <div class="stat-label">Transactions</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8.7</div>
+                            <div class="stat-label">Reputation</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="feature-list">
+                        <li>
+                            <div class="feature-icon">✓</div>
+                            <span>Biometric Authentication</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🔒</div>
+                            <span>Zero-Knowledge Proofs</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🏆</div>
+                            <span>NFT Trophy System</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">⚡</div>
+                            <span>Real-time Verification</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- zkTLS Proofs Screen -->
+            <div class="phone-mockup">
+                <div class="screen">
+                    <div class="screen-header">
+                        <div class="menu-btn">☰</div>
+                        <h3>zkTLS Proofs</h3>
+                        <button style="background: #8b5cf6; border: none; color: white; padding: 5px 10px; border-radius: 5px; font-size: 12px;">Generate</button>
+                    </div>
+                    
+                    <div style="background: #1f2937; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #8b5cf6;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <div style="width: 25px; height: 25px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center;">🛡️</div>
+                            <h4>Spider-Man 2 Session</h4>
+                        </div>
+                        <p style="color: #9ca3af; font-size: 0.8rem; margin-bottom: 10px;">Session ID: abc123...def456</p>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                            <span style="color: #9ca3af;">Duration: 2h 15m</span>
+                            <span style="color: #10b981;">✓ Verified</span>
+                        </div>
+                        <div style="background: #111827; padding: 8px; border-radius: 5px; margin-top: 10px;">
+                            <code style="color: #10b981; font-size: 0.7rem;">0x1a2b3c4d5e6f...</code>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #1f2937; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #374151;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <div style="width: 25px; height: 25px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">⏳</div>
+                            <h4>COD MW3 Match</h4>
+                        </div>
+                        <p style="color: #9ca3af; font-size: 0.8rem; margin-bottom: 10px;">Session ID: xyz789...uvw012</p>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                            <span style="color: #9ca3af;">Duration: 45m</span>
+                            <span style="color: #f59e0b;">⏳ Pending</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 20px; color: #6b7280;">
+                        <p style="font-size: 0.9rem;">Zero-knowledge proofs ensure your gaming achievements are verified without revealing sensitive data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="architecture-section">
+            <h2 class="arch-title">🏗️ System Architecture</h2>
+            <div class="arch-layers">
+                <div class="arch-layer">
+                    <h3 class="layer-title">Frontend Layer</h3>
+                    <ul class="layer-items">
+                        <li>React 18 + TypeScript</li>
+                        <li>Tailwind CSS</li>
+                        <li>Framer Motion</li>
+                        <li>Capacitor Mobile</li>
+                        <li>PWA Support</li>
+                    </ul>
+                </div>
+                
+                <div class="arch-layer">
+                    <h3 class="layer-title">XION Integration</h3>
+                    <ul class="layer-items">
+                        <li>Dave Mobile Toolkit</li>
+                        <li>Biometric Authentication</li>
+                        <li>zkTLS Prover</li>
+                        <li>Wallet Connection</li>
+                        <li>Transaction Signing</li>
+                    </ul>
+                </div>
+                
+                <div class="arch-layer">
+                    <h3 class="layer-title">Blockchain Layer</h3>
+                    <ul class="layer-items">
+                        <li>XION Testnet</li>
+                        <li>Smart Contracts</li>
+                        <li>NFT Trophies</li>
+                        <li>Transaction History</li>
+                        <li>Proof Verification</li>
+                    </ul>
+                </div>
+                
+                <div class="arch-layer">
+                    <h3 class="layer-title">Data Layer</h3>
+                    <ul class="layer-items">
+                        <li>Supabase Backend</li>
+                        <li>Real-time Updates</li>
+                        <li>User Profiles</li>
+                        <li>Game Sessions</li>
+                        <li>Achievement System</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
